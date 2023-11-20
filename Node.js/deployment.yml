@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: retrieve-lux-population-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: retrieve-lux-population-app
+  template:
+    metadata:
+      labels:
+        app: retrieve-lux-population-app
+    spec:
+      containers:
+      - name: retrieve-lux-population-app
+        image: retrieve-lux-population-app:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8000
